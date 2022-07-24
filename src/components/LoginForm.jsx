@@ -1,27 +1,27 @@
-import { Button, Form, Input, message } from "antd";
-import React from "react";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { login } from "../utils";
+import { Button, Form, Input, message } from "antd"
+import React from "react"
+import { LockOutlined, UserOutlined } from "@ant-design/icons"
+import { login } from "../utils"
 
 class LoginForm extends React.Component {
   state = {
-    loading: false
-  };
+    loading: false,
+  }
 
   onFinish = (data) => {
     this.setState({
       loading: true,
     })
 
-    console.log(data);
+    console.log(data)
 
     login(data)
       .then(() => {
-        message.success(`Login Successful`);
-        //this.props.onSuccess();
+        message.success(`Login Successful`)
+        this.props.onSuccess();
       })
       .catch((err) => {
-        message.error(err.message);
+        message.error(err.message)
       })
       .finally(() => {
         this.setState({
@@ -59,8 +59,8 @@ class LoginForm extends React.Component {
           </Button>
         </Form.Item>
       </Form>
-    );
-  };
+    )
+  }
 }
 
-export default LoginForm;
+export default LoginForm
